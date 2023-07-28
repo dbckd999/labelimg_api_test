@@ -1,13 +1,9 @@
 from django.db import models
+from django.core.files.storage import FileSystemStorage
 
-# Create your models here.
-from django.db import models
+fs = FileSystemStorage(location="/Users/dbckd/Documents/img")
 
 
 class MyModel(models.Model):
-    # 다음과 같이 ImageField를 정의합니다.
-    photo = models.ImageField(upload_to='photos/', null=False)
-
-
-class TestModel(models.Model):
-    txval = models.CharField(max_length=20)
+    photo = models.ImageField(storage=fs, null=False)
+제
